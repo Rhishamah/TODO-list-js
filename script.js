@@ -8,6 +8,13 @@ let tasks = [];
 // new logic for rendering the list deleting tasks and also a checkbox
 function renderList() {
   taskList.innerHTML = "";
+
+  // empty state
+  if (tasks.length === 0) {
+    taskList.innerHTML =
+      "<li style='list-style:none; color:gray'>No tasks yet</li>";
+    return;
+  }
   tasks.forEach((task, index) => {
     const newLi = document.createElement("li");
     newLi.style.textDecoration = task.done ? "line-through" : "none"; // strikethrough if done
